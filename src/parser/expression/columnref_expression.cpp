@@ -52,7 +52,8 @@ const string &ColumnRefExpression::GetTableName() const {
 }
 
 string ColumnRefExpression::GetName() const {
-	return !alias.empty() ? alias : column_names.back();
+	//return !alias.empty() ? alias : column_names.back();
+	return ToString();
 }
 
 string ColumnRefExpression::ToString() const {
@@ -61,7 +62,8 @@ string ColumnRefExpression::ToString() const {
 		if (i > 0) {
 			result += ".";
 		}
-		result += KeywordHelper::WriteOptionallyQuoted(column_names[i]);
+		// result += KeywordHelper::WriteOptionallyQuoted(column_names[i]);
+		result += column_names[i];
 	}
 	return result;
 }
